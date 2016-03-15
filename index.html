@@ -1,68 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+	<head>
+		<link rel="stylesheet" href="../mobilesiteos/css/font_awesome.min.css" />
+		<link rel="stylesheet" href="../mobilesiteos/ng/bootstrap/css/v336.min.css" />
+		<link rel="stylesheet" href="../mobilesiteos/ng/bootstrap/css/v336_theme.min.css" />
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="handheldfriendly" content="true" />
-    <meta name="mobileoptimized" content="width" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Open source software for the mobile web!" />
-    <meta name="author" content="Dwight Vietzke" />
+		<style>
+			/* Std AngularJS CSS: Load in page so cloaking start immediately */
 
-    <title>Angular Responsive Images</title>
+			[ng\:cloak],
+			[ng-cloak],
+			[data-ng-cloak],
+			[x-ng-cloak],
+			.ng-cloak,
+			.x-ng-cloak,
+			.ng-hide:not(.ng-hide-animate) {
+				display: none !important;
+			}
 
-    <link rel="stylesheet" href="../mobilesiteos/css/font_awesome.min.css" />
-    <link rel="stylesheet" href="../mobilesiteos/ng/bootstrap/css/v336.min.css">
-    <link rel="stylesheet" href="../mobilesiteos/ng/bootstrap/css/v336_theme.min.css">
-    <link rel="stylesheet" href="./style.css" />
+			ng\:form {
+				display: block;
+			}
 
-    <style>
-        /* Std AngularJS CSS: Load in page so cloaking start immediately */
-        [ng\:cloak],
-		[ng-cloak],
-		[data-ng-cloak],
-		[x-ng-cloak],
-		.ng-cloak,
-		.x-ng-cloak,
-		.ng-hide:not(.ng-hide-animate) {
-			display: none !important;
-		}
+			.ng-cloak {
+				opacity: 0;
+			}
 
-		ng\:form {
-			display: block;
-		}
+			.ng-animate-shim {
+				visibility: hidden;
+			}
 
-        .ng-cloak {
-            opacity: 0;
-        }
+			.ng-anchor {
+				position: absolute;
+			}
 
-		.ng-animate-shim{
-			visibility: hidden;
-		}
+			/* Page specific: resize test css */
+			[data-message] { position:fixed; top:0; left:0; width:100%; }
+			[data-message] .message { max-width:75%; margin:0 auto; text-align:center; }
+			[data-message] .message span { margin-left:10px; white-space:nowrap; }
+			[data-message] .message span:first-child { margin-left:0; }
+			[resize-test] { list-style:none; padding:0; margin:0; }
+			[resize-test] li { margin:10px 0; padding:20px; border:1px solid #ddd; }
 
-		.ng-anchor{
-			position: absolute;
-		}
-    </style>
+		</style>
 
-    <script src="../mobilesiteos/msos/base.uc.js"></script>
-    <script src="../mobilesiteos/jquery/v300_msos.uc.js"></script>
-    <script src="../mobilesiteos/jquery/ui/v1120.uc.js"></script>
-    <script src="../mobilesiteos/ng/v150_msos.uc.js"></script>
-    <script src="../mobilesiteos/ng/image/responsive.js"></script>
+	</head>
+	<body>
+		<section>
+			<div class="container">
+				<div data-message>
+					<div class="alert alert-info message">
+						<span>window width: {{size.width}}</span>
+						<span>window height: {{size.height}}</span>
+					</div>
+				</div>
+				<ul resize-test></ul>
+			</div>
+		</section>
 
-</head>
-<body>
-    <strong>Resize your browser to see the image change</strong>
+		<script data-ng-ignore src="../mobilesiteos/msos/base.uc.js"></script>
+		<script data-ng-ignore src="../mobilesiteos/jquery/v300_msos.uc.js"></script>
+		<script data-ng-ignore src="../mobilesiteos/jquery/ui/v1120.uc.js"></script>
+		<script data-ng-ignore src="../mobilesiteos/ng/v150_msos.uc.js"></script>
+		<script data-ng-ignore src="../mobilesiteos/ng/ui/resize.js"></script>
+		<script data-ng-ignore src="./app.js"></script>
 
-    <br>
-
-    <img src="http://placehold.it/100x100" bh-src-responsive="[ [ 'default', 'http://placehold.it/100x100' ], [ 'small', 'http://placehold.it/400x400' ], [ 'medium', 'http://placehold.it/800x800' ], [ 'large', 'http://placehold.it/1200x1200' ] ]" />
-
-    <script data-ng-ignore>
-        angular.module('test', ['bhResponsiveImages']);
-        // Bootstrap our simple demo
-        angular.bootstrap('body', ['test']);
-    </script>
-</body>
+		<script data-ng-ignore>
+			// Bootstrap our simple demo
+			angular.bootstrap('body', ['app']);
+		</script>
+	</body>
 </html>
