@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="handheldfriendly" content="true" />
+    <meta name="mobileoptimized" content="width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Open source software for the mobile web!" />
+    <meta name="author" content="Dwight Vietzke" />
+
+    <title>Angular Responsive Images</title>
+
+    <link rel="stylesheet" href="../mobilesiteos/css/font_awesome.min.css" />
+    <link rel="stylesheet" href="../mobilesiteos/ng/bootstrap/css/v336.min.css">
+    <link rel="stylesheet" href="../mobilesiteos/ng/bootstrap/css/v336_theme.min.css">
+    <link rel="stylesheet" href="./style.css" />
+
+    <style>
+        /* Std AngularJS CSS: Load in page so cloaking start immediately */
+        [ng\:cloak],
+		[ng-cloak],
+		[data-ng-cloak],
+		[x-ng-cloak],
+		.ng-cloak,
+		.x-ng-cloak,
+		.ng-hide:not(.ng-hide-animate) {
+			display: none !important;
+		}
+
+		ng\:form {
+			display: block;
+		}
+
+        .ng-cloak {
+            opacity: 0;
+        }
+
+		.ng-animate-shim{
+			visibility: hidden;
+		}
+
+		.ng-anchor{
+			position: absolute;
+		}
+    </style>
+
+    <script src="../mobilesiteos/msos/base.uc.js"></script>
+    <script src="../mobilesiteos/jquery/v300_msos.uc.js"></script>
+    <script src="../mobilesiteos/jquery/ui/v1120.uc.js"></script>
+    <script src="../mobilesiteos/ng/v150_msos.uc.js"></script>
+    <script src="../mobilesiteos/ng/image/responsive.js"></script>
+
+</head>
+<body>
+    <strong>Resize your browser to see the image change</strong>
+
+    <br>
+
+    <img src="http://placehold.it/100x100" bh-src-responsive="[ [ 'default', 'http://placehold.it/100x100' ], [ 'small', 'http://placehold.it/400x400' ], [ 'medium', 'http://placehold.it/800x800' ], [ 'large', 'http://placehold.it/1200x1200' ] ]" />
+
+    <script data-ng-ignore>
+        angular.module('test', ['bhResponsiveImages']);
+        // Bootstrap our simple demo
+        angular.bootstrap('body', ['test']);
+    </script>
+</body>
+</html>
